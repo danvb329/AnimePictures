@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>8934AE81-395D-4F64-BBAE-0D476AB8CA86</string>
+	<string>D8FD837B-869A-4F2E-A8EC-86AE0D7B3BEF</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Anime-pictures</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>893DD91D-3DE6-457A-B3D6-556A4F526A1C</key>
-		<string>https://bitbucket.org/ibuts/anime-pictures.git</string>
+		<key>C7FF80F0-FF1F-43F5-B9F5-2E125ABCD7CC</key>
+		<string>https://github.com/iButs/AnimePictures.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Anime-pictures.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>893DD91D-3DE6-457A-B3D6-556A4F526A1C</key>
+		<key>C7FF80F0-FF1F-43F5-B9F5-2E125ABCD7CC</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://bitbucket.org/ibuts/anime-pictures.git</string>
+	<string>https://github.com/iButs/AnimePictures.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>893DD91D-3DE6-457A-B3D6-556A4F526A1C</string>
+	<string>C7FF80F0-FF1F-43F5-B9F5-2E125ABCD7CC</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>893DD91D-3DE6-457A-B3D6-556A4F526A1C</string>
+			<string>C7FF80F0-FF1F-43F5-B9F5-2E125ABCD7CC</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Anime-pictures</string>
+			<string>AnimePictures</string>
 		</dict>
 	</array>
 </dict>

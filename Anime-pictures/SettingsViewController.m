@@ -8,7 +8,7 @@
 
 #import "SettingsViewController.h"
 #import "Searchcontroller.h"
-#import "NEOColorPickerBaseViewController.h"
+
 
 @interface SettingsViewController ()
 

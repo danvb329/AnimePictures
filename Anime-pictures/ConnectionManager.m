@@ -96,7 +96,7 @@
     if (request){
         NSURLSessionDataTask *media = [self.currentSession dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            if ([name isEqualToString:@"login"])
+            if ([name isEqualToString:@"login"]||[name isEqualToString:@"token"])
                 [self parsingUserIDFromDictionary:dict];
             else if ([name isEqualToString:@"favorites"])
                 [self parsingPathesForSmallPreviewsFromDictionary:dict];
@@ -198,6 +198,15 @@
     request.HTTPBody = [noteDataString dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPMethod:@"POST"];
     [self newURLDataTaskWithRequest:request andParsingMethodWithName:@"login"];
+}
+
+-(void)loginUserWithToken:(NSString*)token{
+    NSLog(@"%s",__PRETTY_FUNCTION__);
+    NSURL *url = [NSURL URLWithString:URL_POST_LOGINIG];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    request.HTTPBody = [token dataUsingEncoding:NSUTF8StringEncoding];
+    [request setHTTPMethod:@"POST"];
+    [self newURLDataTaskWithRequest:request andParsingMethodWithName:@"token"];
 }
 
 #pragma mark -----downloading pathes-----

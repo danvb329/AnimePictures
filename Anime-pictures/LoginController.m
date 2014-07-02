@@ -13,6 +13,7 @@
 @implementation LoginController
 @synthesize connectionManager = _connectionManager;
 @synthesize ulogin;
+
 -(ConnectionManager*)connectionManager{
     if (!_connectionManager)
         _connectionManager = [[ConnectionManager alloc]initForLoginController];

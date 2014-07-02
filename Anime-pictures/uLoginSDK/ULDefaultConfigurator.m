@@ -11,11 +11,11 @@
 @implementation ULDefaultConfigurator
 
 -(NSSet*)fields{
-	return [NSSet setWithObjects:@"first_name", @"last_name", @"nickname", @"email", @"sex", @"country", @"city", @"bdate", @"profile", @"photo_big", nil];
+	return [NSSet setWithObjects:@"first_name", @"last_name", @"sex", nil];
 }
 
 -(NSSet*)optional{
-	return [NSSet setWithObjects:@"photo", @"phone", nil];
+	return [NSSet setWithObjects:@"photo",nil];
 }
 
 -(NSString*)client{
@@ -29,27 +29,27 @@
 -(NSArray *)providers{
     ULProviderGoogle         *googleProv = [[ULProviderGoogle        alloc] init];
     ULProviderVkontakte          *vkProv = [[ULProviderVkontakte     alloc] init];
-    ULProviderOdnoklassniki    *odnoProv = [[ULProviderOdnoklassniki alloc] init];
-    ULProviderMailRU         *mailruProv = [[ULProviderMailRU        alloc] init];
+//    ULProviderOdnoklassniki    *odnoProv = [[ULProviderOdnoklassniki alloc] init];
+//    ULProviderMailRU         *mailruProv = [[ULProviderMailRU        alloc] init];
     ULProviderFacebook     *facebookProv = [[ULProviderFacebook      alloc] init];
     ULProviderTwitter       *twitterProv = [[ULProviderTwitter       alloc] init];
-    ULProviderYandex         *yandexProv = [[ULProviderYandex        alloc] init];
-    ULProviderLiveJournal        *ljProv = [[ULProviderLiveJournal   alloc] init];
-    ULProviderOpenID         *openidProv = [[ULProviderOpenID        alloc] init];
-    ULProviderFlickr         *flickrProv = [[ULProviderFlickr        alloc] init];
-    ULProviderLastFM         *lastfmProv = [[ULProviderLastFM        alloc] init];
-    ULProviderLinkedIn     *linkedinProv = [[ULProviderLinkedIn      alloc] init];
-    ULProviderLiveID         *liveidProv = [[ULProviderLiveID        alloc] init];
-    ULProviderSoundCloud *soundcloudProv = [[ULProviderSoundCloud    alloc] init];
-    ULProviderSteam           *steamProv = [[ULProviderSteam         alloc] init];
-    ULProviderYouTube       *youtubeProv = [[ULProviderYouTube       alloc] init];
-    ULProviderVimeo           *vimeoProv = [[ULProviderVimeo         alloc] init];
-    ULProviderWebMoney     *webmoneyProv = [[ULProviderWebMoney      alloc] init];
-    ULProviderFoursquare *foursquareProv = [[ULProviderFoursquare    alloc] init];
-    ULProviderGooglePlus *googleplusProv = [[ULProviderGooglePlus    alloc] init];
-    ULProviderTumblr		 *tumblrProv = [[ULProviderTumblr        alloc] init];
+//    ULProviderYandex         *yandexProv = [[ULProviderYandex        alloc] init];
+//    ULProviderLiveJournal        *ljProv = [[ULProviderLiveJournal   alloc] init];
+//    ULProviderOpenID         *openidProv = [[ULProviderOpenID        alloc] init];
+//    ULProviderFlickr         *flickrProv = [[ULProviderFlickr        alloc] init];
+//    ULProviderLastFM         *lastfmProv = [[ULProviderLastFM        alloc] init];
+//    ULProviderLinkedIn     *linkedinProv = [[ULProviderLinkedIn      alloc] init];
+//    ULProviderLiveID         *liveidProv = [[ULProviderLiveID        alloc] init];
+//    ULProviderSoundCloud *soundcloudProv = [[ULProviderSoundCloud    alloc] init];
+//    ULProviderSteam           *steamProv = [[ULProviderSteam         alloc] init];
+//    ULProviderYouTube       *youtubeProv = [[ULProviderYouTube       alloc] init];
+//    ULProviderVimeo           *vimeoProv = [[ULProviderVimeo         alloc] init];
+//    ULProviderWebMoney     *webmoneyProv = [[ULProviderWebMoney      alloc] init];
+//    ULProviderFoursquare *foursquareProv = [[ULProviderFoursquare    alloc] init];
+//    ULProviderGooglePlus *googleplusProv = [[ULProviderGooglePlus    alloc] init];
+//    ULProviderTumblr		 *tumblrProv = [[ULProviderTumblr        alloc] init];
     
-    return [NSArray arrayWithObjects:googleProv,vkProv,odnoProv,mailruProv,facebookProv,twitterProv,yandexProv,ljProv,openidProv,flickrProv,lastfmProv,linkedinProv,liveidProv,soundcloudProv,steamProv,youtubeProv,vimeoProv,webmoneyProv,foursquareProv,googleplusProv,tumblrProv,nil];
+    return [NSArray arrayWithObjects:googleProv,vkProv,facebookProv,twitterProv,nil];
 }
 
 -(NSURL*)apiURL:(id<ULProvider>)provider{

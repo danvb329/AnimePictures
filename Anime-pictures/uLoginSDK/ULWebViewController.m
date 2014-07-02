@@ -10,7 +10,7 @@
 #import "ConnectionErrors.h"
 #import "uLogin.h"
 #import "ULErrorViewController.h"
-
+#import "LoginController.h"
 @implementation ULWebViewController
 
 -(ULWebViewController*)initWithProvider:(id<ULProvider>)thisProvider andConfigurator:(ULDefaultConfigurator*)thisConfig {
@@ -58,37 +58,42 @@
 	NSLog(@"uLoginState: %@\nToken: %@", uLoginState, token);
 	
 	if([token length] > 0){
-		[self loadProfileByToken:token]; //redirect on anime-pictures
+		//[self loadProfileByToken:token]; //redirect on anime-pictures
+        [self redirectOnAnimePicturesWithToken:token];
 	}
 }
 
 
 #pragma mark - Token methods
 
--(void)loadProfileByToken:(NSString*)token {
-    NSString *urlAddress = [@"http://ulogin.ru/token.php?token=" stringByAppendingString:token];
-	NSError* error = nil;
-	NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlAddress] options:NSDataReadingUncached error:&error];
-
-	if(error){
-		[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Ошибка", nil) message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-		[self.navigationController popViewControllerAnimated:YES];
-		return;
-	}
-	
-	ULUserProfileData *profile = [[ULUserProfileData alloc] initWithData:data];
-	if( [profile Error] == nil ) {
-		[[NSNotificationCenter defaultCenter] postNotificationName:[kuLoginLoginSuccess stringByAppendingString:@".internal"] object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:profile, @"profile", currentProvider, @"provider", nil]];
-	}
-	else {
-		ULErrorViewController *errorViewController = [[[ULErrorViewController alloc] initWithNibName:@"ULErrorViewController" bundle:nil] initWithErrorCode:[profile Error] andProvider:currentProvider];
-		[self.navigationController pushViewController:errorViewController animated:YES];
-		
-		NSMutableArray *navigationArray = [[NSMutableArray alloc] initWithArray:self.navigationController.viewControllers];
-		[navigationArray removeObjectAtIndex:([self.navigationController.viewControllers count]-2)];
-		self.navigationController.viewControllers = navigationArray;
-	}
+-(void)redirectOnAnimePicturesWithToken:(NSString*)token{
+    LoginController *loginController = (LoginController*)[[self.navigationController childViewControllers]firstObject];
+    [loginController.connectionManager loginUserWithToken:token];
 }
+//-(void)loadProfileByToken:(NSString*)token {
+//    NSString *urlAddress = [@"http://ulogin.ru/token.php?token=" stringByAppendingString:token];
+//	NSError* error = nil;
+//	NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlAddress] options:NSDataReadingUncached error:&error];
+//
+//	if(error){
+//		[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Ошибка", nil) message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+//		[self.navigationController popViewControllerAnimated:YES];
+//		return;
+//	}
+//	
+//	ULUserProfileData *profile = [[ULUserProfileData alloc] initWithData:data];
+//	if( [profile Error] == nil ) {
+//		[[NSNotificationCenter defaultCenter] postNotificationName:[kuLoginLoginSuccess stringByAppendingString:@".internal"] object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:profile, @"profile", currentProvider, @"provider", nil]];
+//	}
+//	else {
+//		ULErrorViewController *errorViewController = [[[ULErrorViewController alloc] initWithNibName:@"ULErrorViewController" bundle:nil] initWithErrorCode:[profile Error] andProvider:currentProvider];
+//		[self.navigationController pushViewController:errorViewController animated:YES];
+//		
+//		NSMutableArray *navigationArray = [[NSMutableArray alloc] initWithArray:self.navigationController.viewControllers];
+//		[navigationArray removeObjectAtIndex:([self.navigationController.viewControllers count]-2)];
+//		self.navigationController.viewControllers = navigationArray;
+//	}
+//}
 
 
 @end

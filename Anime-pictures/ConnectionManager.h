@@ -71,6 +71,7 @@
 
 -(BOOL)addImageToFavourites;
 -(BOOL)voteFromImage;
+-(void)loginUserWithToken:(NSString*)token;
 @end
 
 
